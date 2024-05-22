@@ -7,8 +7,8 @@ import internetIcon from "./Assets/Internet Icon.svg";
 
 function Contact({ closeOverlay }) {
     return (
-        <div className='px-8 w-screen'>
-            <div className='bg-white grid gap-y-8 rounded-[20px] pb-20'>
+        <div className='px-8'>
+            <div className='bg-white grid gap-y-8 rounded-[22px] pb-20 min-w-96'>
                 <div className='grid pt-10 px-8 justify-end' onClick={closeOverlay}>
                     <img src={cancelIcon} alt="Close Icon" />
                 </div>
