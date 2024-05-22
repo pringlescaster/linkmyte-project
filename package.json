@@ -1,6 +1,6 @@
 {
-  "homepage": "http://pringlescaster.github.io/linkmyt-app",
-  "name": "linkmytee",
+ 
+  "name": "hook",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
