@@ -1,3 +1,4 @@
+// Splashscreen.js
 import React, { useEffect } from 'react';
 
 function Splashscreen() {
@@ -14,10 +15,7 @@ function Splashscreen() {
         src="https://lottie.host/20a20c7a-216e-4292-ae96-3677beccda06/TxiAo6kk3A.json" 
         background="transparent" 
         speed="1" 
-        
-    
         loop 
-    
         autoplay>
       </dotlottie-player>
     </div>
@@ -25,4 +23,3 @@ function Splashscreen() {
 }
 
 export default Splashscreen;
-
