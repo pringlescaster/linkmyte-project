@@ -1,4 +1,3 @@
-// Main.js
 import React, { useState } from 'react';
 import imagee from "./Assets/Logo2.svg";
 import editicon from "./Assets/editicon.svg";
@@ -20,31 +19,33 @@ import Share from "./Share";
 import Barcode from "./Barcode";
 
 function Main() {
-  const [isContactOpen, setisContactOpen] = useState(false);
-  const [isShareOpen, setisShareOpen] = useState(false);
-  const [isBarCodeOpen, setisBarCodeOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isShareOpen, setIsShareOpen] = useState(false);
+  const [isBarCodeOpen, setIsBarCodeOpen] = useState(false);
 
-  function contactOptions() {
-    setisContactOpen(!isContactOpen);
+  function toggleContactOptions() {
+    setIsContactOpen(!isContactOpen);
+  }
+
+  function toggleShareOptions() {
+    setIsShareOpen(!isShareOpen);
+  }
+
+  function toggleBarcodeOptions() {
+    setIsBarCodeOpen(!isBarCodeOpen);
   }
 
   function closeOverlay() {
-    setisContactOpen(false);
-    setisShareOpen(false);
-    setisBarCodeOpen(false);
+    setIsContactOpen(false);
+    setIsShareOpen(false);
+    setIsBarCodeOpen(false);
   }
 
-  function shareOptions() {
-    setisShareOpen(!isShareOpen);
-  }
-
-  function onBarcode() {
-    setisBarCodeOpen(!isBarCodeOpen);
-  }
+  console.log("Rendering Main component");
 
   return (
     <div
-      className="grid justify-center gap-y-10 relative bg-[#F1F1F1] min-h-svh pb-20 overflow-x-hidden"
+      className="grid justify-center gap-y-10 relative bg-[#F1F1F1] min-h-screen pb-20 overflow-x-hidden"
       style={{
         backgroundImage: `url(${linkmyteBackground})`,
         backgroundPosition: "bottom right",
@@ -66,17 +67,17 @@ function Main() {
             </div>
             <div className="flex gap-x-4">
               <div className="bg-violet-700 rounded-[91.43px] w-8 h-8 flex justify-center items-center opacity-70">
-                <img src={arrow} className="items-center" alt="" />
+                <img src={arrow} className="items-center" alt="Arrow Icon" />
               </div>
-              <div onClick={onBarcode} className="bg-violet-700 rounded-[91.43px] w-8 h-8 flex justify-center items-center opacity-70">
-                <img src={barcode} className="items-center" alt="" />
+              <div onClick={toggleBarcodeOptions} className="bg-violet-700 rounded-[91.43px] w-8 h-8 flex justify-center items-center opacity-70">
+                <img src={barcode} className="items-center" alt="Barcode Icon" />
               </div>
             </div>
           </div>
           <img
             src={profilepicture}
             className="relative left-1/2 transform -translate-x-1/2 grid items-center justify-center pt-10"
-            alt=""
+            alt="Profile Picture"
           />
         </div>
       </div>
@@ -100,14 +101,14 @@ function Main() {
           <div className="grid px-4 py-6 bg-white bg-opacity-60 gap-y-[19px] rounded-[20px]">
             <div
               className="flex justify-start items-center gap-x-4 bg-white opacity-100 py-[11px] pl-[27px] rounded-[13px]"
-              onClick={contactOptions}
+              onClick={toggleContactOptions}
             >
               <img src={profileIcon} alt="Profile Icon" />
               <p className="text-[#A4A4A4] text-sm font-sourceSans font-semibold">
                 Contacts Options
               </p>
             </div>
-            <div className="flex justify-start items-center gap-x-4 bg-white opacity-100 py-[11px] pl-[27px] rounded-[13px]" onClick={shareOptions}>
+            <div className="flex justify-start items-center gap-x-4 bg-white opacity-100 py-[11px] pl-[27px] rounded-[13px]" onClick={toggleShareOptions}>
               <img src={shareYourContact} alt="Share Contact Icon" />
               <p className="text-[#A4A4A4] text-sm font-sourceSans font-semibold">
                 Send Your Contact Info
@@ -131,7 +132,7 @@ function Main() {
           </div>
         </div>
       </div>
-      <div className="px-20 justify-center items-center" onClick={shareOptions}>
+      <div className="px-20 justify-center items-center" onClick={toggleShareOptions}>
         <div className="bg-[#5E0DD3] justify-center rounded-[26px] py-4 shadow">
           <p className="text-center text-white text-base font-semibold font-sourceSans">
             Add to Contacts

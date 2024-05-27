@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
 import Main from "./Components/Main";
-import Share from "./Components/Share";
-import Barcode from "./Components/Barcode";
 import Splashscreen from "./Components/Splashscreen";
 
 function App() {
-const [showSplash, setshowSplash] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
 
-useEffect(() => {
-  const timer = setTimeout(()=> {setshowSplash(false);}, 5000);
-  return () => clearTimeout(timer);},[]);
+  useEffect(() => {
+    // Simulate a loading time for the main content
+    const timer = setTimeout(() => {
+      console.log("Loading complete, hiding splash screen");
+      setIsLoading(false);
+    }, 3800); // Adjust the time based on your needs
 
-
-
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-[#F1F1F1]">
-      {showSplash ? <Splashscreen /> : <Main />}
+      {isLoading ? <Splashscreen /> : <Main />}
     </div>
   );
 }
-
-
 
 export default App;

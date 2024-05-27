@@ -1,4 +1,3 @@
-// Splashscreen.js
 import React, { useEffect } from 'react';
 
 function Splashscreen() {
@@ -7,6 +6,10 @@ function Splashscreen() {
     script.src = "https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs";
     script.type = "module";
     document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
